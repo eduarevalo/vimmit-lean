@@ -1,0 +1,41 @@
+{
+    "CUSTOMER_REGISTRATION": {
+        "TITLE": "Customer registration",
+
+        "CUSTOMER_NAME": "Customer name",
+        "PHONE_NUMBER": "Phone number",
+        "EMAIL": "Email",
+
+        "SEND_CONFIRMATION_SMS": "Send confirmation SMS",
+        "SUBMIT": "Register"
+    },
+    "CHECKOUT": {
+        "TITLE": "Checkout",
+
+        "CUSTOMER": "Customer",
+        "CUSTOMER_GUIDANCE": "Find by name, phone number or email",
+
+        "ITEMS": "Items",
+        "PRODUCT": "Product",
+        "QUANTITY": "Quantity",
+        "PRICE": "Price",
+
+        "SUBMIT": "Checkout"
+    },
+    "STORE_CALENDAR": {
+        "TITLE": "Store calendar",
+        "DESCRIPTION": "Select the employee to see his/her assigned dates. Deselect to see the whole store calendar."
+
+    },
+    "STORE_STOCK": {
+        "TITLE": "Store stock",
+        "DESCRIPTION": "",
+
+        "STOCK": "Stock",
+        "UNITS": "Units",
+        "PACK_24": "Pack x24",
+        "PLACE_ORDER": "Place an order",
+        "RECEIVE_MOVE_STOCK": "Receive/Move stock"
+
+    }
+}
