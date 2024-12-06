@@ -19,25 +19,25 @@ export default function Home() {
   const { all } = useStores();
 
   return (
-    <div>
-    <TabContext value={value}>
-      <Stack style={{ height: '100%', width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} variant='fullWidth' indicatorColor="secondary">
-            <Tab label="Pickup" value="1"  />
-            <Tab label="Stores" value="2" />
-            <Tab label="Delivery" value="3" />
-          </TabList>
-        </Box>
-        <Box>
-          <TabPanel value="1">Pickup</TabPanel>
-          <TabPanel value="2">
-            <Stack spacing={1}>
-              { all.map(store => <Store key={store.id} {...store} />) } 
-            </Stack>
-          </TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
-        </Box>
+    <div style={{ marginTop: '140px'}}>
+      <TabContext value={value}>
+        <Stack style={{ height: '100%', width: '100%' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList onChange={handleChange} variant='fullWidth' indicatorColor="secondary">
+              <Tab label="Pickup" value="1"  />
+              <Tab label="Stores" value="2" />
+              <Tab label="Delivery" value="3" />
+            </TabList>
+          </Box>
+          <Box>
+            <TabPanel value="1"></TabPanel>
+            <TabPanel value="2">
+              <Stack spacing={1}>
+                { all.map(store => <Store key={store.id} {...store} />) } 
+              </Stack>
+            </TabPanel>
+            <TabPanel value="3"></TabPanel>
+          </Box>
         </Stack>
       </TabContext>
     </div>
