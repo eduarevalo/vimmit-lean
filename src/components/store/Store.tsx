@@ -27,7 +27,7 @@ export default function Store(props: StoreProps) {
             component="div"
             sx={{ color: 'text.secondary' }}
           >
-            {address.city}
+            {address.city}, {address.postalCode}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pl: 1, pb: 1 }}>
