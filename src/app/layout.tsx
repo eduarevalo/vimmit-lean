@@ -5,7 +5,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { Roboto } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
-import { AppBar, Box, Container, Grid2, Toolbar, Typography } from "@mui/material";
+import { Container, Toolbar } from "@mui/material";
 import "./globals.css";
 import Image from "next/image";
 import logo from '@/../public/logo-masa-round.svg'

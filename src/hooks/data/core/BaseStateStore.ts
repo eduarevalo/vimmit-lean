@@ -13,7 +13,7 @@ export const EMPTY_STORE = <T>(initial: Partial<BaseStore<T>>): () => BaseStore<
     ...initial
 })
 
-export const useStateStore = <T extends { id: any }>(initial: Partial<BaseStore<T>>) => {
+export const useStateStore = <T extends { id: string }>(initial: Partial<BaseStore<T>>) => {
     const [state, setState] = useState<BaseStore<T>>(EMPTY_STORE(initial));
 
     const setSelected = useCallback((element: T) => {

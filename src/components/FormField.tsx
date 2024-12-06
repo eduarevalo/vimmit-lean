@@ -1,11 +1,11 @@
 import { TextField } from "@mui/material";
 import { useTranslations } from 'next-intl';
 import FormArray from "./FormArray";
-import { FormField } from "./Form";
+import { FormField as FormFieldType } from "./Form";
 import FormCalendar from "./FormCalendar";
 
 export type FormFieldProps = { 
-    field: FormField
+    field: FormFieldType
     namespace: string
 }
 

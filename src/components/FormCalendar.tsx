@@ -3,10 +3,10 @@ import { useState } from "react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { LocalizationProvider, PickersDay, PickersDayProps } from "@mui/x-date-pickers";
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 import { styled } from "@mui/material/styles";
 import { useEmployees } from "@/hooks/data/useEmployees";
-import { FormControlLabel, Grid2, Paper, Switch } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import EmployeeList, { EmployeeWithColor } from "./employee/EmployeeList";
 
 interface CustomPickerDayProps extends PickersDayProps<Dayjs> {
@@ -47,9 +47,7 @@ return (
 );
 }
 
-export type FormCalendarProps = {}
-
-export default function FormCalendar(props: FormCalendarProps) {
+export default function FormCalendar() {
   const{ all, selected, setSelected } = useEmployees();
   const [selectedDays, setSelectedDays] = useState<Dayjs[]>([]);
   const [color, setColor] = useState('');
@@ -82,7 +80,7 @@ export default function FormCalendar(props: FormCalendarProps) {
                 //sx={{ margin: 10 }}
                 slots={{ day: Day }}
                 slotProps={{
-                  day: (ownerState) => ({ selectedDays, color, onClickTwice: openProperties }),
+                  day: () => ({ selectedDays, color, onClickTwice: openProperties }),
                 }}/>
             </LocalizationProvider>
           

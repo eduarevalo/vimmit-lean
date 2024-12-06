@@ -1,7 +1,6 @@
-import { Fragment } from "react";
 import { FormField as FormFieldType } from "./Form";
 import FormField from "./FormField";
-import { Divider, Paper, Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 export type FormArrayProps = { 
@@ -13,7 +12,7 @@ export type FormArrayProps = {
 }
 
 export default function FormArray(props: FormArrayProps) {
-    const { namespace, values, label, parentId, fields } = props;
+    const { namespace, values, label, fields } = props;
     const t = useTranslations(namespace)
     return (
       <span>
