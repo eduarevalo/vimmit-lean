@@ -1,8 +1,8 @@
 'use client'
-import Form from "@/components/Form";
+import ContentLayout from "@/components/ContentLayout";
 import { COLORS } from "@/components/employee/EmployeeList";
 import { useProducts } from "@/hooks/data/useProducts";
-import { Button, ButtonGroup, Stack } from "@mui/material";
+import { Box, Button, ButtonGroup, Stack } from "@mui/material";
 import { BarChart } from '@mui/x-charts/BarChart';
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
@@ -20,13 +20,15 @@ export default function Page() {
         pack24: product.stock.pack24,
         total: product.stock.pack24 * 24 + product.stock.units,
     })), [all])
-    return <Form 
-        namespace={namespace}
-        title='TITLE'
-        description='DESCRIPTION'
-        fields={[]} 
-        actions={[]}
-        >
+    return <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh">
+        <ContentLayout
+          namespace={namespace}
+          title='TITLE'
+          description='DESCRIPTION'>
           <Stack direction='row'>
             <BarChart
                 dataset={dataset}
@@ -38,9 +40,10 @@ export default function Page() {
                 height={400}
             />
             <ButtonGroup orientation="vertical" style={{ width: '200px' }}>
-                <Button key="one">{t('PLACE_ORDER')}</Button>
-                <Button key="one">{t('RECEIVE_MOVE_STOCK')}</Button>
+              <Button key="one">{t('PLACE_ORDER')}</Button>
+              <Button key="one">{t('RECEIVE_MOVE_STOCK')}</Button>
             </ButtonGroup>
           </Stack>
-        </Form>
+        </ContentLayout>
+      </Box>
 }

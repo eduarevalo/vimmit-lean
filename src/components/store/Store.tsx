@@ -6,18 +6,21 @@ import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import PinDrop from '@mui/icons-material/PinDropOutlined';
-import { Button } from '@mui/material';
+import { Button, Chip } from '@mui/material';
 import { Store as StoreType } from '@/hooks/data/useStores';
+import { useTranslations } from 'next-intl';
 
 export type StoreProps = StoreType & {
     
 }
 
 export default function Store(props: StoreProps) {
-  const { name, address } = props;
+  const t = useTranslations('COMPONENT_STORE');
+  const { name, address, picture, services } = props;
   return (
     <Card sx={{ display: 'flex' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      
+      <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
             {name}
@@ -30,19 +33,38 @@ export default function Store(props: StoreProps) {
             {address.city}, {address.postalCode}
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pl: 1, pb: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="Get directions" color="primary">
             <PinDrop />
           </IconButton>
-          <Button variant='contained' color='secondary'>Order</Button>
+          <Button variant='contained' color='secondary'>{t('ORDER')}</Button>
+          {t('SERVICES')}
+          { services.map(service => <Chip key={service} color="secondary" variant="outlined" label={t(service)}/>) }
         </Box>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image="/static/images/cards/live-from-space.jpg"
-        alt="Live from space album cover"
-      />
+      
+      { 
+        picture && 
+        <CardMedia
+          component="img"
+          sx={{ width: 151 }}
+          image={picture}
+        />
+      }
+
+      { !picture && 
+        <Box
+          sx={{
+            width: 140,
+            height: 140,
+            borderRadius: 1,
+            bgcolor: 'secondary.main',
+            '&:hover': {
+              bgcolor: 'secondary.dark',
+            },
+          }}
+        />
+      }
     </Card>
   );
 }

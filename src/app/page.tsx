@@ -6,8 +6,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { useState } from "react";
-import Store from "@/components/store/Store";
-import { useStores } from "@/hooks/data/useStores";
+import StoreTab from "@/components/front-store/StoreTab";
+import DeliveryTab from "@/components/front-store/DeliveryTab";
 
 export default function Home() {
   const [value, setValue] = useState('1');
@@ -16,10 +16,8 @@ export default function Home() {
     setValue(newValue);
   };
 
-  const { all } = useStores();
-
   return (
-    <div style={{ marginTop: '140px'}}>
+    <div style={{ marginTop: '108px'}}>
       <TabContext value={value}>
         <Stack style={{ height: '100%', width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -32,11 +30,11 @@ export default function Home() {
           <Box>
             <TabPanel value="1"></TabPanel>
             <TabPanel value="2">
-              <Stack spacing={1}>
-                { all.map(store => <Store key={store.id} {...store} />) } 
-              </Stack>
+              <StoreTab />
             </TabPanel>
-            <TabPanel value="3"></TabPanel>
+            <TabPanel value="3">
+              <DeliveryTab />
+            </TabPanel>
           </Box>
         </Stack>
       </TabContext>

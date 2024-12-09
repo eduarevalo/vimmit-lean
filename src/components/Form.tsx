@@ -1,9 +1,8 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
-import Grow from '@mui/material/Grow';
+import { Button, Stack } from "@mui/material";
 import { useTranslations } from 'next-intl';
 import FormArray from "./FormArray";
 import FormField from "./FormField";
-import { ReactNode } from "react";
+import ContentLayout, { ContentLayoutProps } from "./ContentLayout";
 
 export type FormFieldType = 'text' | 'heading' | 'array' | 'calendar'
 export type FormFieldBase = { 
@@ -39,53 +38,32 @@ export type FormAction = {
     main?: boolean 
 }
 
-export type FormProps = { 
-    namespace: string,
-    title: string, 
-    description?: string
+export type FormProps = ContentLayoutProps & { 
     fields: FormField[], 
-    actions: FormAction[] 
-    children?: ReactNode
+    actions: FormAction[]
 }
 
 export default function Form(props: FormProps) {
-    const { title, description, fields, actions, namespace, children } = props;
-    const t = useTranslations(namespace);
-    return <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="100vh">
-        <Stack spacing={2} style={{ width: '100%' }}>
-                 
-            <Typography variant="h4">{t(title)}</Typography>
-            
-            { description && <Typography variant="body2">{t(description)}</Typography> }
-            
-            {
-                fields.map((field, index) => (
-                    <Grow in timeout={((index+1) * 300)} key={field.id}>
-                        <FormField field={field} namespace={namespace} />
-                    </Grow>
-                ))
-            }
+    
+    const { fields, actions, namespace, ...contentLayoutProps } = props;
+    const t = useTranslations(namespace)
 
-            <Grow in timeout={1200}>
-                <Stack direction='row' spacing={2} justifyContent='end'>
-                { 
-                    actions
-                    .map(action => <Button 
-                        key={action.label} 
-                        variant="contained" 
-                        style={{ minWidth: '140px' }} 
-                        color={action.main ? 'secondary' : 'primary' }
-                        >{t(action.label)}</Button>
-                        )
-                }
-                {children}
-                </Stack>
-            </Grow>
+    return <ContentLayout {...contentLayoutProps} namespace={namespace}>
+        {
+            fields.map((field) => <FormField field={field} key={field.id} namespace={namespace} />)
+        }
+        <Stack direction='row' spacing={2} justifyContent='end'>
+            { 
+                actions
+                .map(action => <Button 
+                    key={action.label} 
+                    variant="contained" 
+                    style={{ minWidth: '140px' }} 
+                    color={action.main ? 'secondary' : 'primary' }
+                    >{t(action.label)}</Button>
+                    )
+            }
         </Stack>
-    </Box>
+    </ContentLayout>
 
 }

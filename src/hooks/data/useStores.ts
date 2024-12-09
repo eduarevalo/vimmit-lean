@@ -1,6 +1,6 @@
 import { useStateStore } from "./core/BaseStateStore"
 
-export type ServiceId = 'pickup' | 'delivery'
+export type ServiceId = 'pickup' | 'delivery' | 'eat-in' | 'takeout'
 
 export type Address = {
     city: string
@@ -27,7 +27,8 @@ export type Store = {
     name: string
     address: Address
     services: ServiceId[]
-    openingHours: OpeningHours
+    openingHours: OpeningHours,
+    picture?: string
 }
 
 const stores: Store[] = [{
@@ -35,9 +36,9 @@ const stores: Store[] = [{
     name: 'Avenue Victoria',
     address: {
         city: 'Montreal',
-        postalCode: ''
+        postalCode: 'H3W 2P9'
     },
-    services: ['pickup', 'delivery'],
+    services: ['pickup', 'delivery', 'takeout', 'eat-in'],
     openingHours: {}
 }, {
     id: 'siembra',
@@ -46,23 +47,23 @@ const stores: Store[] = [{
         city: 'Laval',
         postalCode: ''
     },
-    services: ['pickup'],
+    services: ['pickup', 'eat-in'],
     openingHours: {}
 }, {
     id: 'cremazie',
     name: 'Cremazie Delivery',
     address: {
         city: 'Montreal',
-        postalCode: ''
+        postalCode: 'H2N 1L9'
     },
-    services: ['pickup', 'delivery'],
+    services: ['pickup', 'delivery', 'takeout'],
     openingHours: {}
 }, {
     id: 'st-eustache',
     name: 'Saint Eustache',
     address: {
         city: 'Saint Eustache',
-        postalCode: ''
+        postalCode: 'J7R 6N6'
     },
     services: ['delivery'],
     openingHours: {}

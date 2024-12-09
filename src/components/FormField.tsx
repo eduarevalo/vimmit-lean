@@ -6,7 +6,7 @@ import FormCalendar from "./FormCalendar";
 
 export type FormFieldProps = { 
     field: FormFieldType
-    namespace: string
+    namespace?: string
 }
 
 export default function FormField(props: FormFieldProps) {

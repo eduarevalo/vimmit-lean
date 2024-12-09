@@ -1,4 +1,17 @@
 {
+    "COMPONENT_STORE": {
+        "ORDER": "Order",
+        "SERVICES": "Services: ",
+        "delivery": "Delivery",
+        "pickup": "Pickup",
+        "eat-in": "Eat-in",
+        "takeout": "Takeout"
+    },
+    "FRONT_STORE": {
+        "DELIVERY_DESCRIPTION": "Type you your address to find delivery options close to your place.",
+        "ADDRESS": "Address",
+        "SUBMIT": "Find options"
+    },
     "CUSTOMER_REGISTRATION": {
         "TITLE": "Customer registration",
 

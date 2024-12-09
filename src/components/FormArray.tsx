@@ -4,7 +4,7 @@ import { Divider, Stack, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 export type FormArrayProps = { 
-    namespace: string
+    namespace?: string
     parentId: string
     fields: FormFieldType[]
     values: { id: string }[]
