@@ -1,8 +1,8 @@
-import { Product } from '@/hooks/data/useProducts'
+import { Product as ProductType } from '@/hooks/data/useProducts'
 import Image from 'next/image';
 
 export type ProductProps = {
-    product: Product
+    product: ProductType
 }
 
 export default function Product(props: ProductProps) {
