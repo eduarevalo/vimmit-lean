@@ -37,22 +37,22 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={roboto.variable}>
         <ThemeProvider theme={theme}>
-          
-          <div style={{ position: 'absolute', width: '100%' }}>
-            <Container maxWidth="md">
-              <Toolbar>
-                <Image src={logo} alt='' width={120} style={{ marginLeft: '-80px' }}></Image>
-              </Toolbar>
-            </Container>
-          </div>
-          
-          <AppRouterCacheProvider options={{ key: 'css' }}>
-            <Container maxWidth="md">
-              <NextIntlClientProvider messages={messages}>
+          <NextIntlClientProvider messages={messages}>
+            <div style={{ position: 'absolute', width: '100%' }}>
+              <Container maxWidth="md">
+                <Toolbar>
+                  <Image src={logo} alt='' width={120} style={{ marginLeft: '-80px' }}></Image>
+                </Toolbar>
+              </Container>
+            </div>
+            
+            <AppRouterCacheProvider options={{ key: 'css' }}>
+              <Container maxWidth="md">
                 {children}
-              </NextIntlClientProvider>
-            </Container>    
-          </AppRouterCacheProvider>
+              </Container>    
+            </AppRouterCacheProvider>
+            
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

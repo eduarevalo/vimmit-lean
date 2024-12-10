@@ -8,7 +8,10 @@
         "takeout": "Takeout"
     },
     "FRONT_STORE": {
-        "DELIVERY_DESCRIPTION": "Type you your address to find delivery options close to your place.",
+        "MENU": "Menu",
+        "STORES": "Stores",
+        "DELIVERY": "Delivery",
+        "DELIVERY_DESCRIPTION": "Type your address to find delivery options close to your place.",
         "ADDRESS": "Address",
         "SUBMIT": "Find options"
     },
