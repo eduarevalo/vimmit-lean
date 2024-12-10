@@ -13,23 +13,23 @@ export default function MenuTab() {
     const frozen = useMemo(() => all.filter(p => p.categories.includes('frozen')), [all])
     return (
       <Stack spacing={3}>
-        <Typography variant="h4">Deluxe</Typography>
+        <Typography variant="h4" color='textSecondary'>Deluxe</Typography>
         <Grid container spacing={3}>    
             { deluxe.map(product => <Grid size={6} key={product.id}><Product product={product} /></Grid>) }
         </Grid>
-        <Typography variant="h4" pt={3}>Premium</Typography>
+        <Typography variant="h4" color='textSecondary' pt={3}>Premium</Typography>
         <Grid container spacing={3}>
             { premium.map(product => <Grid size={6} key={product.id}><Product product={product} /></Grid>) }
         </Grid>
-        <Typography variant="h4" pt={3}>Sweet</Typography>
+        <Typography variant="h4" color='textSecondary' pt={3}>Sweet</Typography>
         <Grid container spacing={3}>    
             { sweet.map(product => <Grid size={6} key={product.id}><Product product={product} /></Grid>) }
         </Grid>
-        <Typography variant="h4" pt={3}>Share</Typography>
+        <Typography variant="h4" color='textSecondary' pt={3}>Share</Typography>
         <Grid container spacing={3}>    
             { share.map(product => <Grid size={6} key={product.id}><Product product={product} /></Grid>) }
         </Grid>
-        <Typography variant="h4" pt={3}>Frozen</Typography>
+        <Typography variant="h4" color='textSecondary' pt={3}>Frozen</Typography>
         <Grid container spacing={3}>    
             { frozen.map(product => <Grid size={6} key={product.id}><Product product={product} /></Grid>) }
         </Grid>

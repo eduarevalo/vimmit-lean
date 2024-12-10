@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react"
 export type Product = { 
     id: string
     name: string
+    description: string,
     price: number,
     categories: ('deluxe' | 'premium' | 'sweet' | 'share' | 'frozen')[],
     stock: {
@@ -21,16 +22,18 @@ export const useProducts = () => {
             all: [{
                 id: '00000001',
                 name: 'Share 4',
+                description: '',
                 price: 22.99,
                 categories: ['share'],
                 stock: {
                     units: 4,
                     pack24: 2
                 },
-                image: '/products/combo-4-box.png'
+                image: '/products/combo-4-box.png',
             }, {
                 id: '00000002',
                 name: 'Share 12',
+                description: '',
                 price: 52.99,
                 categories: ['share'],
                 stock: {
@@ -41,6 +44,7 @@ export const useProducts = () => {
             }, {
                 id: '0000010',
                 name: 'Burger Fromage',
+                description: 'Boeuf haché, bacon, cheddar au majestueux goût au grill.',
                 price: 6.99,
                 categories: ['deluxe'],
                 stock: {
@@ -51,6 +55,7 @@ export const useProducts = () => {
             }, {
                 id: '0000011',
                 name: 'Poulet Fromage',
+                description: 'Combinaison parfaite de Mozarella, Poulet et Béchamel.',
                 price: 5.99,
                 categories: ['premium'],
                 stock: {
@@ -61,6 +66,7 @@ export const useProducts = () => {
             }, {
                 id: '0000012',
                 name: 'Trois Fromages',
+                description: 'Magnifique trio de Provolone, Mozarella et Parmesan.',
                 price: 5.99,
                 categories: ['premium'],
                 stock: {
@@ -71,6 +77,7 @@ export const useProducts = () => {
             }, {
                 id: '0000013',
                 name: 'Jambon Fromage',
+                description: 'Mozaralle, Jambon dans un somptueuse sauce béchamel.',
                 price: 6.99,
                 categories: ['premium'],
                 stock: {
@@ -81,6 +88,7 @@ export const useProducts = () => {
             }, {
                 id: '0000014',
                 name: 'Hawaïenne',
+                description: 'Fromage, jambon cuit et ananas avec une touche sucrée de notre sirop.',
                 price: 5.99,
                 categories: ['premium'],
                 stock: {
@@ -91,6 +99,7 @@ export const useProducts = () => {
             }, {
                 id: '0000015',
                 name: 'Poulet BBQ',
+                description: 'Savoureuses cuisses de poulet grillées avec une touche de BBQ épicé.',
                 price: 6.99,
                 categories: ['deluxe'],
                 stock: {
@@ -101,6 +110,7 @@ export const useProducts = () => {
             }, {
                 id: '0000016',
                 name: 'Côtes Levées',
+                description: 'Délicieuses côtes levées effilochées et assaisonnées au BBQ.',
                 price: 6.99,
                 categories: ['deluxe'],
                 stock: {
@@ -111,6 +121,7 @@ export const useProducts = () => {
             }, {
                 id: '0000017',
                 name: 'Caprese',
+                description: 'Généreux Provolone fraîs, tomates, assaisonnées d\'un délicieux pesto.',
                 price: 5.99,
                 categories: ['premium'],
                 stock: {
@@ -121,6 +132,7 @@ export const useProducts = () => {
             }, {
                 id: '0000018',
                 name: 'Spécial Boeuf',
+                description: 'Boeuf effiloché mijoté aux tomates et oignons.',
                 price: 5.99,
                 categories: ['deluxe'],
                 stock: {
@@ -131,6 +143,7 @@ export const useProducts = () => {
             }, {
                 id: '0000019',
                 name: 'Frozen X4',
+                description: '',
                 price: 19.99,
                 categories: ['frozen'],
                 stock: {
@@ -141,6 +154,7 @@ export const useProducts = () => {
             }, {
                 id: '0000020',
                 name: 'Frozen X8',
+                description: '',
                 price: 37.99,
                 categories: ['frozen'],
                 stock: {
@@ -151,6 +165,7 @@ export const useProducts = () => {
             }, {
                 id: '0000021',
                 name: 'Frozen X12',
+                description: '',
                 price: 54.99,
                 categories: ['frozen'],
                 stock: {
@@ -161,6 +176,7 @@ export const useProducts = () => {
             }, {
                 id: '0000022',
                 name: 'Frozen X16',
+                description: '',
                 price: 70.99,
                 categories: ['frozen'],
                 stock: {
@@ -171,6 +187,7 @@ export const useProducts = () => {
             }, {
                 id: '000003',
                 name: 'Nutella',
+                description: '',
                 price: 5.99,
                 categories: ['sweet'],
                 stock: {
@@ -180,6 +197,7 @@ export const useProducts = () => {
             }, {
                 id: '000004',
                 name: 'Goyave',
+                description: '',
                 price: 5.99,
                 categories: ['sweet'],
                 stock: {
@@ -189,15 +207,7 @@ export const useProducts = () => {
             }, {
                 id: '000006',
                 name: 'Dulce Leche',
-                price: 5.99,
-                categories: ['sweet'],
-                stock: {
-                    units: 4,
-                    pack24: 2
-                },
-            }, {
-                id: '000005',
-                name: 'aaa',
+                description: '',
                 price: 5.99,
                 categories: ['sweet'],
                 stock: {
