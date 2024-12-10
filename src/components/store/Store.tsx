@@ -30,7 +30,7 @@ export default function Store(props: StoreProps) {
             component="div"
             sx={{ color: 'text.secondary' }}
           >
-            {address.city}, {address.postalCode}
+            {[address.city, address.postalCode].filter(v => !!v).join(', ')}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, alignItems: 'center', pl: 1, pb: 1 }}>
